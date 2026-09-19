@@ -2,8 +2,7 @@
 
 int main(void)
 {
-	Tetris game(20, 10, 0, 0, 30);
-	game.init();
+	Tetris game(20, 10, 163, 133, 30);
 	game.play();
 	return 0;
 }
