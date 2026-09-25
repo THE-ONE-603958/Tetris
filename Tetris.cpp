@@ -1,6 +1,6 @@
 #include "Tetris.h"
 #include <time.h>
-#include <cstdlib>
+#include <stdlib.h>
 
 Tetris::Tetris(int rows, int cols, int left, int top, int BlockSize)
 {
