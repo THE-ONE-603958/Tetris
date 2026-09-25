@@ -1,21 +1,33 @@
 #pragma once
+#include<graphics.h>
+#include <vector>
+using namespace std;
+
 class Tetris
 {
 public:
-	Tetris(int Rows, int Cols,int Left,int Top,int BlockSize);
+	Tetris(int rows, int cols,int left,int top,int BlockSize);
 	void init();
 	void play();
 
 private:
 	void keyEvent();
-	void updateWindow();
+	void UpdateWindow();
 	void drop();
 	void clearLine();
 
-	int getDelay();
+	int GetDelay();
 
 private:
-	int Delay;
+	int delay;
 	bool update;
+
+	vector<vector<int>> map;
+	int rows;
+	int cols;
+	int LeftMargin;
+	int TopMargin;
+	int BlockSize;
+	IMAGE ImgBackground;
 };
 

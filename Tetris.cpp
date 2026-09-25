@@ -1,23 +1,43 @@
 #include "Tetris.h"
+#include <time.h>
+#include <cstdlib>
 
-Tetris::Tetris(int Rows, int Cols, int Left, int Top, int BlockSize)
+Tetris::Tetris(int rows, int cols, int left, int top, int BlockSize)
 {
+	this->rows = rows;
+	this->cols = cols;
+	this->LeftMargin = left;
+	this->TopMargin = top;
+	this->BlockSize = BlockSize;
+
+	for (int i = 0; i < rows; i++)
+	{
+		vector<int> MapRow;
+		for (int j = 0; j < cols; j++)
+		{
+			MapRow.push_back(0);
+		}
+		map.push_back(MapRow);
+	}
+
 }
 
 void Tetris::init()
 {
-	Delay = 30;
+	delay = 30;
+
+	srand(time(NULL));
 }
 
 void Tetris::keyEvent()
 {
 }
 
-void Tetris::updateWindow()
+void Tetris::UpdateWindow()
 {
 }
 
-int Tetris::getDelay()
+int Tetris::GetDelay()
 {
 	return 0;
 }
@@ -39,8 +59,8 @@ void Tetris::play()
 	{
 		keyEvent();
 
-		timer += getDelay();
-		if (timer >= Delay)
+		timer += GetDelay();
+		if (timer >= delay)
 		{
 			drop();
 			timer = 0;
@@ -49,7 +69,7 @@ void Tetris::play()
 
 		if(update)
 		{
-			updateWindow();
+			UpdateWindow();
 			clearLine();
 			update = false;
 		}
